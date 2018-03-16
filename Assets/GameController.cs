@@ -11,6 +11,8 @@ public class GameController : MonoBehaviour {
     Text startText;
     [SerializeField]
     GameObject restartPanel;
+    [SerializeField]
+    Text soldiersCount;
     
 
 	void Start () {
@@ -23,8 +25,9 @@ public class GameController : MonoBehaviour {
         if (GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>().isDead)
         {
             restartPanel.SetActive(true);
+            soldiersCount.text = "Saved " + (GameObject.Find("Timer").GetComponent<TimeForSoldiers>().timeEarned * GameObject.Find("Timer").GetComponent<TimeForSoldiers>().TimeMultiplier).ToString("0");
         }
-	}
+    }
 
     IEnumerator wait3Secs()
     {

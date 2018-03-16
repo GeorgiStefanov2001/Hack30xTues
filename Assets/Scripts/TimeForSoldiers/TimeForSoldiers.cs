@@ -7,6 +7,7 @@ public class TimeForSoldiers : MonoBehaviour
 {
     public Text time;
     public float timeEarned;
+    public float TimeMultiplier;
 
     void Start()
     {
