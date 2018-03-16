@@ -10,8 +10,6 @@ public class SpawningEnemies : MonoBehaviour {
     bool canSpawnEnemy1 = true;//for now
 
     void Start () {
-        //setuping all the enemies
-        enemy1.GetComponent<Enemy1>().Enemy1Setup();
     }
 
     void Update() {
@@ -33,15 +31,15 @@ public class SpawningEnemies : MonoBehaviour {
                 for (int i = 0; i < 3; i++)
                 {
                     float rand = Random.Range(-2, 2);
-                    SpawnEnemy(rand, enemy1.GetComponent<Enemy1>().SpawnPointY, enemy1);
+                    SpawnEnemy(rand, enemy1.GetComponent<EnemyClass>().SpawnPointY, enemy1);
                 }
                 canSpawnEnemy1 = false;
-                StartCoroutine(waitForRespawn(enemy1.GetComponent<Enemy1>().respawnTime));
+                StartCoroutine(waitForRespawn(enemy1.GetComponent<EnemyClass>().respawnTime));
             }
             else
             {
                 canSpawnEnemy1 = false;
-                StartCoroutine(waitForRespawn(enemy1.GetComponent<Enemy1>().respawnTime));
+                StartCoroutine(waitForRespawn(enemy1.GetComponent<EnemyClass>().respawnTime));
             }
         }
     }

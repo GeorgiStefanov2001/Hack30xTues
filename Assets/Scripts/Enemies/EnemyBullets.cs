@@ -23,7 +23,7 @@ public class EnemyBullets : MonoBehaviour {
     {
         transform.position += transform.up * bulletSpeed * Time.deltaTime;
 
-        if (transform.position.y < -5.5f || transform.position.y>5.5f || transform.position.x < -2.5f || transform.position.x > 2.5f)
+        if (transform.position.y < -5.5f || transform.position.y>5.5f || transform.position.x < -3.5f || transform.position.x > 3.5f)
         {
             Destroy(gameObject);
         }

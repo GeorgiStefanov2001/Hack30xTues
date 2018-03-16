@@ -20,7 +20,7 @@ public class Enemy1Movement : MonoBehaviour {
         DestroyWhenOffScreen();
         var dist = Vector3.Distance(transform.position, GameObject.FindGameObjectWithTag("Player").transform.position);
 
-        if (dist <= GetComponent<Enemy1>().aggroRange && canShoot)
+        if (dist <= GetComponent<EnemyClass>().aggroRange && canShoot)
         { 
             GameObject bull = Instantiate(bullet);
             bull.transform.position = transform.position;
@@ -31,12 +31,12 @@ public class Enemy1Movement : MonoBehaviour {
 
     void Move()
     {
-        transform.position += transform.up * GetComponent<Enemy1>().Speed * Time.deltaTime;
+        transform.position += transform.up * GetComponent<EnemyClass>().Speed * Time.deltaTime;
     }
 
     void DestroyWhenOffScreen()
     {
-        if (transform.position.y < -GetComponent<Enemy1>().SpawnPointY || transform.position.x < -2.5f || transform.position.x > 2.5f)
+        if (transform.position.y < -GetComponent<EnemyClass>().SpawnPointY || transform.position.x < -3.5f || transform.position.x > 3.5f)
         {
             Destroy(gameObject);
         }
@@ -51,7 +51,7 @@ public class Enemy1Movement : MonoBehaviour {
 
     IEnumerator waitForCooldown()
     {
-        yield return new WaitForSeconds(GetComponent<Enemy1>().shootingCooldown);
+        yield return new WaitForSeconds(GetComponent<EnemyClass>().shootingCooldown);
         canShoot = true;
     }
 }

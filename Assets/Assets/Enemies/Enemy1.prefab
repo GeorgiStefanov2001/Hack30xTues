@@ -20,10 +20,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4933398098448050}
   - component: {fileID: 212069572248716442}
-  - component: {fileID: 114735575726288294}
   - component: {fileID: 114220358312742870}
   - component: {fileID: 61729910708167564}
   - component: {fileID: 50329663359398506}
+  - component: {fileID: 114846459012063344}
   m_Layer: 0
   m_Name: Enemy1
   m_TagString: Untagged
@@ -101,7 +101,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 1801506818893888, guid: 3006ab18ac4c2a04b900f16cd5467e6a, type: 2}
---- !u!114 &114735575726288294
+--- !u!114 &114846459012063344
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -109,7 +109,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1751261317027686}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e2c16569a18cc204c86e04ad8f262260, type: 3}
+  m_Script: {fileID: 11500000, guid: d3ea547f5a7f5b24b984f9509e933ec1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Health: 10
