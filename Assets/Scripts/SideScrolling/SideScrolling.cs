@@ -22,7 +22,7 @@ public class SideScrolling : MonoBehaviour
 
     void Sidescrolling()
     {
-        for (int i = 1; i < waterTiles.Count; i++)
+        for (int i = 0; i < waterTiles.Count; i++)
         {
             Vector3 position = waterTiles[i].transform.position;
             position.y -= ScrollingSpeed * Time.deltaTime;
