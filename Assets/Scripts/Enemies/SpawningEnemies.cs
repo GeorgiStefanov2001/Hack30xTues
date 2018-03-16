@@ -52,14 +52,14 @@ public class SpawningEnemies : MonoBehaviour {
     {
         if (canSpawnEnemy2)
         {
-            if (Random.value <= 0.25f)
+            if (Random.value <= 0.35f)
             {
                 for (int i = 0; i < 2; i++)
                 {
                     float rand = Random.Range(-5, 5);
                     float Xpos;
                     
-                    if (Random.Range(1, 3) == 2)
+                    if (Random.Range(1, 3) == 1)
                     {
                         Xpos = enemy2.GetComponent<EnemyClass>().SpawnPointX;
                     }
