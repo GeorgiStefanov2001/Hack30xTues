@@ -7,9 +7,6 @@ public class Enemy1Movement : MonoBehaviour {
     [SerializeField]
     GameObject bullet;
 
-    [SerializeField]
-    float bulletSpeed;
-
     Vector3 playerPos;
     void Start() {
         playerPos = GameObject.FindGameObjectWithTag("Player").transform.position;
