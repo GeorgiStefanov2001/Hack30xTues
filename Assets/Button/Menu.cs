@@ -12,11 +12,11 @@ public class Menu : MonoBehaviour {
 
     public void Options()
     {
-
+        SceneManager.LoadScene(2);
     }
 
     public void Quit()
     {
-        
+        Application.Quit();
     }
 }
