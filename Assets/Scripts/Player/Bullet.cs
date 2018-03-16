@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-
-    public float MaxScreen;
-    public float shootingSpeed;
-
+    [SerializeField]
+    float MaxScreen;
+    [SerializeField]
+    float shootingSpeed;
+    [SerializeField]
+    int damage;
 
     void Start()
     {
@@ -21,6 +23,15 @@ public class Bullet : MonoBehaviour
         transform.position = position;
         if (transform.position.y > MaxScreen)
         {
+            Destroy(gameObject);
+        }
+    }
+
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        if(col.gameObject.tag == "Enemy")
+        {
+            col.gameObject.GetComponent<EnemyProfile>().hp -= damage;
             Destroy(gameObject);
         }
     }

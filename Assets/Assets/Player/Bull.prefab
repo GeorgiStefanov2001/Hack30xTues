@@ -95,7 +95,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MaxScreen: 4.6
-  shootingSpeed: 15
+  shootingSpeed: 10
+  damage: 5
 --- !u!212 &212414033157062904
 SpriteRenderer:
   m_ObjectHideFlags: 1
