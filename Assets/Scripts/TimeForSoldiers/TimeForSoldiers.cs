@@ -5,17 +5,17 @@ using UnityEngine.UI;
 
 public class TimeForSoldiers : MonoBehaviour
 {
-
     public Text time;
+    float timeEarned;
 
     void Start()
     {
-
+        timeEarned = 0;
     }
 
     void FixedUpdate()
     {
-        float timeEarned = Time.realtimeSinceStartup;
-        time.text = timeEarned.ToString(".000");
+        timeEarned = Time.timeSinceLevelLoad;
+        time.text = timeEarned.ToString("0.000");
     }
 }
