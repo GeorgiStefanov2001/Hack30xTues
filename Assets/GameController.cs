@@ -9,14 +9,21 @@ public class GameController : MonoBehaviour {
 
     [SerializeField]
     Text startText;
+    [SerializeField]
+    GameObject restartPanel;
+    
 
 	void Start () {
         canStart = false;
-        StartCoroutine(wait3Secs()); 
+        StartCoroutine(wait3Secs());
+        restartPanel.SetActive(false);
     }
 	
 	void Update () {
-		
+        if (GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>().isDead)
+        {
+            restartPanel.SetActive(true);
+        }
 	}
 
     IEnumerator wait3Secs()
@@ -27,7 +34,7 @@ public class GameController : MonoBehaviour {
         yield return new WaitForSeconds(1f);
         startText.text = "1";
         yield return new WaitForSeconds(1f);
-        startText.text = "START";
+        startText.text = " START";
         canStart = true;
         yield return new WaitForSeconds(1f);
         startText.text = " ";

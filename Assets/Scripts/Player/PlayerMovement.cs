@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -21,11 +20,12 @@ public class PlayerMovement : MonoBehaviour
     {
         if (!isDead)
         {
+            Time.timeScale = 1;
             Move();
         }
         else
         {
-            SceneManager.LoadScene(1);
+            Time.timeScale = 0;
         }
     }
 
@@ -34,12 +34,6 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetMouseButton(0) && Camera.main.GetComponent<GameController>().canStart)
         {
             transform.position = Vector2.Lerp(transform.position, Camera.main.ScreenToWorldPoint(Input.mousePosition), speed * Time.deltaTime);
-
-            /*if (Input.GetAxis("Fire1") > 0)
-            {
-                Vector3 movement = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                transform.position = Vector2.Lerp(transform.position, movement, speed * Time.deltaTime);
-            }*/
 
             if (transform.position.x <= -PaddingX)
             {
