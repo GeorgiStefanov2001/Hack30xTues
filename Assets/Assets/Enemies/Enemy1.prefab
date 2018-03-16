@@ -111,11 +111,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2c16569a18cc204c86e04ad8f262260, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Health: 0
-  Speed: 0
+  Health: 10
+  Speed: 5
   SpawnPointX: 0
-  SpawnPointY: 0
-  respawnTime: 0
+  SpawnPointY: 8
+  respawnTime: 3
 --- !u!212 &212069572248716442
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -150,7 +150,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 10c84d9662fe09d43844bb506a71b003, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 847e5f237cf13ce4098f8c5be816afb4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
