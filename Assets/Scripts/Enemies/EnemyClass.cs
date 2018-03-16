@@ -9,11 +9,19 @@ public class EnemyClass : MonoBehaviour {
     public float SpawnPointX;
     public float SpawnPointY;
     public float respawnTime;
+    public float aggroRange;
+    public float bulletSpeed;
 
     public int HP
     {
         get { return Health; }
         set { Health = value; }
+    }
+
+    public float SpeedValue
+    {
+        get { return Speed; }
+        set { Speed = value; }
     }
 
     public float Xpos
@@ -33,5 +41,12 @@ public class EnemyClass : MonoBehaviour {
         get { return respawnTime; }
         set { respawnTime = value; }
     }
+
+    public float Agrro
+    {
+        get { return aggroRange; }
+        set { aggroRange = value; }
+    }
+
 
 }

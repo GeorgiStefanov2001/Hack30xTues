@@ -10,5 +10,6 @@ public class Enemy1 : EnemyClass {
         Speed = 5f;
         SpawnPointY = 8f;
         respawnTime = 3f;
+        aggroRange = 3f;
     }
 }
