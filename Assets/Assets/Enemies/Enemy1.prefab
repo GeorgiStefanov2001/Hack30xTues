@@ -24,7 +24,6 @@ GameObject:
   - component: {fileID: 114220358312742870}
   - component: {fileID: 61729910708167564}
   - component: {fileID: 50329663359398506}
-  - component: {fileID: 114334339923317100}
   m_Layer: 0
   m_Name: Enemy1
   m_TagString: Untagged
@@ -38,13 +37,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1751261317027686}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
   m_LocalPosition: {x: -1.7, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
 --- !u!50 &50329663359398506
 Rigidbody2D:
   serializedVersion: 4
@@ -81,7 +80,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 1.28, y: 1.28}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -102,17 +101,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 1801506818893888, guid: 3006ab18ac4c2a04b900f16cd5467e6a, type: 2}
---- !u!114 &114334339923317100
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1751261317027686}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 50700887567271140836aa1be5d5f397, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114735575726288294
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -124,13 +112,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2c16569a18cc204c86e04ad8f262260, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Health: 0
-  Speed: 0
+  Health: 10
+  Speed: 3
   SpawnPointX: 0
-  SpawnPointY: 0
-  respawnTime: 0
-  aggroRange: 0
-  bulletSpeed: 0
+  SpawnPointY: 8
+  respawnTime: 3
+  aggroRange: 3
+  shootingCooldown: 3
 --- !u!212 &212069572248716442
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -165,7 +153,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 847e5f237cf13ce4098f8c5be816afb4, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c6e023be133bc024a8689aeb9d89b57e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

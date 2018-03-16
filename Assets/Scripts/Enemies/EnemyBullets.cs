@@ -17,19 +17,22 @@ public class EnemyBullets : MonoBehaviour {
 
     void FixedUpdate () {
         Move();
-	}
+    }
 
     void Move()
     {
-        Vector2 pos = transform.position;
-        pos.y -= bulletSpeed * Time.deltaTime;
-        transform.position = pos;
+        transform.position += transform.up * bulletSpeed * Time.deltaTime;
+
+        if (transform.position.y < -5.5f || transform.position.y>5.5f || transform.position.x < -2.5f || transform.position.x > 2.5f)
+        {
+            Destroy(gameObject);
+        }
     }
 
     public void Rotate()
     {
         var direction = transform.position - playerPos;
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.Euler(0f, 0f, angle - 90f);
+        transform.rotation = Quaternion.Euler(0f, 0f, angle + 90f);
     }
 }

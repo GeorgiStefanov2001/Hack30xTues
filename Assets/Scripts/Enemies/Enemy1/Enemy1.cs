@@ -7,7 +7,7 @@ public class Enemy1 : EnemyClass {
     public void Enemy1Setup()
     {
         Health = 10;
-        Speed = 5f;
+        Speed = 2.5f;
         SpawnPointY = 8f;
         respawnTime = 3f;
         aggroRange = 3f;

@@ -7,6 +7,8 @@ public class Enemy1Movement : MonoBehaviour {
     [SerializeField]
     GameObject bullet;
 
+    bool canShoot = true; // for now
+
     Vector3 playerPos;
     void Start() {
         playerPos = GameObject.FindGameObjectWithTag("Player").transform.position;
@@ -18,18 +20,18 @@ public class Enemy1Movement : MonoBehaviour {
         DestroyWhenOffScreen();
         var dist = Vector3.Distance(transform.position, GameObject.FindGameObjectWithTag("Player").transform.position);
 
-        if (dist <= GetComponent<Enemy1>().aggroRange)
-        {
+        if (dist <= GetComponent<Enemy1>().aggroRange && canShoot)
+        { 
             GameObject bull = Instantiate(bullet);
             bull.transform.position = transform.position;
+            canShoot = false;
+            StartCoroutine(waitForCooldown());
         }
     }
 
     void Move()
     {
-        Vector2 pos = transform.position;
-        pos.y -=  GetComponent<Enemy1>().Speed * Time.deltaTime;
-        transform.position = pos;
+        transform.position += transform.up * GetComponent<Enemy1>().Speed * Time.deltaTime;
     }
 
     void DestroyWhenOffScreen()
@@ -44,6 +46,12 @@ public class Enemy1Movement : MonoBehaviour {
     {
         var direction = transform.position - playerPos;
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.Euler(0f, 0f, angle - 90f);
+        transform.rotation = Quaternion.Euler(0f, 0f, angle+90f);
+    }
+
+    IEnumerator waitForCooldown()
+    {
+        yield return new WaitForSeconds(GetComponent<Enemy1>().shootingCooldown);
+        canShoot = true;
     }
 }
