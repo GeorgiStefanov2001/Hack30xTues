@@ -6,14 +6,18 @@ public class SpawningEnemies : MonoBehaviour {
 
     [SerializeField]
     GameObject enemy1;
+    [SerializeField]
+    GameObject enemy2;
 
-    bool canSpawnEnemy1 = true;//for now
+    public bool canSpawnEnemy1 = true;//for now
+    public bool canSpawnEnemy2 = true;
 
     void Start () {
     }
 
     void Update() {
         SpawnEnemy1();
+        SpawnEnemy2();
     }
 
     void SpawnEnemy(float Xpos, float Ypos,GameObject enemyType)
@@ -34,19 +38,58 @@ public class SpawningEnemies : MonoBehaviour {
                     SpawnEnemy(rand, enemy1.GetComponent<EnemyClass>().SpawnPointY, enemy1);
                 }
                 canSpawnEnemy1 = false;
-                StartCoroutine(waitForRespawn(enemy1.GetComponent<EnemyClass>().respawnTime));
+                StartCoroutine(Enemy1waitForRespawn(enemy1.GetComponent<EnemyClass>().respawnTime));
             }
             else
             {
                 canSpawnEnemy1 = false;
-                StartCoroutine(waitForRespawn(enemy1.GetComponent<EnemyClass>().respawnTime));
+                StartCoroutine(Enemy1waitForRespawn(enemy1.GetComponent<EnemyClass>().respawnTime));
             }
         }
     }
 
-    IEnumerator waitForRespawn(float waitTime)
+    void SpawnEnemy2()
+    {
+        if (canSpawnEnemy2)
+        {
+            if (Random.value <= 0.25f)
+            {
+                for (int i = 0; i < 2; i++)
+                {
+                    float rand = Random.Range(-5, 5);
+                    float Xpos;
+                    
+                    if (Random.Range(1, 3) == 2)
+                    {
+                        Xpos = enemy2.GetComponent<EnemyClass>().SpawnPointX;
+                    }
+                    else
+                    {
+                        Xpos = -enemy2.GetComponent<EnemyClass>().SpawnPointX;
+                    }
+                    
+                    SpawnEnemy(Xpos, rand, enemy2);
+                }
+                canSpawnEnemy2 = false;
+                StartCoroutine(Enemy2waitForRespawn(enemy2.GetComponent<EnemyClass>().respawnTime));
+            }
+            else
+            {
+                canSpawnEnemy2 = false;
+                StartCoroutine(Enemy2waitForRespawn(enemy2.GetComponent<EnemyClass>().respawnTime));
+            }
+        }
+    }
+
+    IEnumerator Enemy1waitForRespawn(float waitTime)
     {
         yield return new WaitForSeconds(waitTime);
         canSpawnEnemy1 = true;
+    }
+
+    IEnumerator Enemy2waitForRespawn(float waitTime)
+    {
+        yield return new WaitForSeconds(waitTime);
+        canSpawnEnemy2 = true;
     }
 }

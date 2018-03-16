@@ -24,4 +24,13 @@ public class PlayerMovement : MonoBehaviour
             transform.position = Vector2.Lerp(transform.position, Camera.main.ScreenToWorldPoint(Input.mousePosition), speed * Time.deltaTime);
         }
     }
+
+    void OnTriggerEnter2D(Collider2D coll)
+    {
+        if(coll.gameObject.tag == "Enemy")
+        {
+            Destroy(coll.gameObject);
+            //we die;
+        }
+    }
 }
