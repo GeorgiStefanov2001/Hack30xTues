@@ -19,7 +19,7 @@ public class PlayerShooting : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (canShoot)
+        if (canShoot && Camera.main.GetComponent<GameController>().canStart)
         {
             GameObject bull = Instantiate(bullet);
             bull.transform.position = transform.position + new Vector3(0.0f, GetComponent<BoxCollider2D>().size.y / 2 + bull.GetComponent<BoxCollider2D>().size.y / 2, 0.0f);

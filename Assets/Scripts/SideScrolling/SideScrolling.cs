@@ -17,7 +17,10 @@ public class SideScrolling : MonoBehaviour
 
     void FixedUpdate()
     {
-        Sidescrolling();
+        if (Camera.main.GetComponent<GameController>().canStart)
+        {
+            Sidescrolling();
+        }
     }
 
     void Sidescrolling()

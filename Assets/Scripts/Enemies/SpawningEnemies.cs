@@ -19,9 +19,12 @@ public class SpawningEnemies : MonoBehaviour {
     }
 
     void Update() {
-        SpawnEnemy1();
-        SpawnEnemy2();
-        SpawnEnemy3();
+        if (Camera.main.GetComponent<GameController>().canStart)
+        {
+            SpawnEnemy1();
+            SpawnEnemy2();
+            SpawnEnemy3();
+        }
     }
 
     void SpawnEnemy(float Xpos, float Ypos,GameObject enemyType)

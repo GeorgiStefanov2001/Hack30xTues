@@ -18,6 +18,7 @@ public class Bullet : MonoBehaviour
 
     void Update()
     {
+        
         Vector3 position = transform.position;
         position.y += shootingSpeed * Time.deltaTime;
         transform.position = position;

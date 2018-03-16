@@ -28,7 +28,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Move()
     {
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButton(0) && Camera.main.GetComponent<GameController>().canStart)
         {
             transform.position = Vector2.Lerp(transform.position, Camera.main.ScreenToWorldPoint(Input.mousePosition), speed * Time.deltaTime);
         }

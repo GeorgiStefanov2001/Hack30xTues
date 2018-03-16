@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class TimeForSoldiers : MonoBehaviour
 {
     public Text time;
-    float timeEarned;
+    public float timeEarned;
 
     void Start()
     {
@@ -15,7 +15,10 @@ public class TimeForSoldiers : MonoBehaviour
 
     void FixedUpdate()
     {
-        timeEarned = Time.timeSinceLevelLoad;
-        time.text = timeEarned.ToString("0.000");
+        if (Camera.main.GetComponent<GameController>().canStart)
+        {
+            timeEarned = Time.timeSinceLevelLoad - 3f;
+            time.text = timeEarned.ToString("0.000");
+        }
     }
 }

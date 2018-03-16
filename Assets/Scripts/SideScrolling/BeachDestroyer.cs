@@ -12,12 +12,15 @@ public class BeachDestroyer : MonoBehaviour
 
     void FixedUpdate()
     {
-        Vector3 beachPosition = transform.position;
-        beachPosition.y -= Camera.main.GetComponent<SideScrolling>().ScrollingSpeed * Time.deltaTime;
-        transform.position = beachPosition;
-        if (transform.position.y + transform.localScale.y  < Camera.main.GetComponent<SideScrolling>().BottomBorder)
+        if (Camera.main.GetComponent<GameController>().canStart)
         {
-            Destroy(gameObject);
+            Vector3 beachPosition = transform.position;
+            beachPosition.y -= Camera.main.GetComponent<SideScrolling>().ScrollingSpeed * Time.deltaTime;
+            transform.position = beachPosition;
+            if (transform.position.y + transform.localScale.y < Camera.main.GetComponent<SideScrolling>().BottomBorder)
+            {
+                Destroy(gameObject);
+            }
         }
     }
 }
