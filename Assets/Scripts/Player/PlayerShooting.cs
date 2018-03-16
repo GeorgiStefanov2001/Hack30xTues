@@ -6,7 +6,7 @@ public class PlayerShooting : MonoBehaviour
 {
 
     [SerializeField]
-    float ShootingCooldown = 1.0f;
+    float ShootingCooldown;
 
     [SerializeField]
     GameObject bullet;
