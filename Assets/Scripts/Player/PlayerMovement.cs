@@ -6,16 +6,24 @@ using UnityEngine.SceneManagement;
 public class PlayerMovement : MonoBehaviour
 {
     public float speed;
+    public bool isDead;
 
     void Start()
     {
-
+        isDead = false;
     }
 
 
     void FixedUpdate()
     {
-        Move();
+        if (!isDead)
+        {
+            Move();
+        }
+        else
+        {
+            SceneManager.LoadScene(1);
+        }
     }
 
     void Move()
@@ -26,12 +34,12 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    void OnTriggerEnter2D(Collider2D coll)
+    void OnCollisionEnter2D(Collision2D coll)
     {
         if(coll.gameObject.tag == "Enemy")
         {
             Destroy(coll.gameObject);
-            SceneManager.LoadScene(0);
+            isDead = true;
         }
     }
 }
