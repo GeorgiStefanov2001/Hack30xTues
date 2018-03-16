@@ -7,17 +7,19 @@ public class Enemy1Movement : MonoBehaviour {
     Vector3 playerPos;
     void Start() {
         playerPos = GameObject.FindGameObjectWithTag("Player").transform.position;
+        Rotate();
     }
 
-    void Update() {
+    void FixedUpdate() {
         Move();
         DestroyWhenOffScreen();
     }
 
     void Move()
     {
-        Transform target = GameObject.FindGameObjectWithTag("Player").transform;
-        transform.position = Vector2.MoveTowards(transform.position, target.position, GetComponent<Enemy1>().Speed * Time.deltaTime);
+        Vector2 pos = transform.position;
+        pos.y -=  GetComponent<Enemy1>().Speed * Time.deltaTime;
+        transform.position = pos;
     }
 
     void DestroyWhenOffScreen()
@@ -26,5 +28,12 @@ public class Enemy1Movement : MonoBehaviour {
         {
             Destroy(gameObject);
         }
+    }
+
+    void Rotate()
+    {
+        var direction = transform.position - playerPos;
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.Euler(0f, 0f, angle - 90f);
     }
 }
