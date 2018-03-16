@@ -19,7 +19,7 @@ public class TimeForSoldiers : MonoBehaviour
         if (Camera.main.GetComponent<GameController>().canStart)
         {
             timeEarned = Time.timeSinceLevelLoad - 3f;
-            time.text = timeEarned.ToString("0.000");
+            time.text = timeEarned.ToString("0.00");
         }
     }
 }
