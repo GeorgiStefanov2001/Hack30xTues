@@ -1,0 +1,54 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class SpawningEnemies : MonoBehaviour {
+
+    [SerializeField]
+    GameObject enemy1;
+
+    bool canSpawnEnemy1 = true;//for now
+
+    void Start () {
+        //setuping all the enemies
+        enemy1.GetComponent<Enemy1>().Enemy1Setup();
+    }
+
+    void Update() {
+        SpawnEnemy1();
+    }
+
+    void SpawnEnemy(float Xpos, float Ypos,GameObject enemyType)
+    {
+        GameObject enemy = Instantiate(enemyType);
+        enemy.transform.position = new Vector2(Xpos, Ypos);
+    }
+
+    void SpawnEnemy1()
+    {
+        if (canSpawnEnemy1)
+        {
+            if (Random.value <= 0.5f)
+            {
+                for (int i = 0; i < 3; i++)
+                {
+                    float rand = Random.Range(-2, 2);
+                    SpawnEnemy(rand, enemy1.GetComponent<Enemy1>().SpawnPointY, enemy1);
+                }
+                canSpawnEnemy1 = false;
+                StartCoroutine(waitForRespawn(enemy1.GetComponent<Enemy1>().respawnTime));
+            }
+            else
+            {
+                canSpawnEnemy1 = false;
+                StartCoroutine(waitForRespawn(enemy1.GetComponent<Enemy1>().respawnTime));
+            }
+        }
+    }
+
+    IEnumerator waitForRespawn(float waitTime)
+    {
+        yield return new WaitForSeconds(waitTime);
+        canSpawnEnemy1 = true;
+    }
+}
