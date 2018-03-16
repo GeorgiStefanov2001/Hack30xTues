@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 212350294250926418}
   - component: {fileID: 114377584306656008}
   - component: {fileID: 50434553922839188}
-  - component: {fileID: 61091274285129848}
+  - component: {fileID: 58945756916480062}
   m_Layer: 0
   m_Name: EnemyBullet
   m_TagString: Untagged
@@ -63,8 +63,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!61 &61091274285129848
-BoxCollider2D:
+--- !u!58 &58945756916480062
+CircleCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -75,19 +75,9 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.002895832, y: -0.007239729}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.32, y: 0.32}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
+  m_Offset: {x: 0.005, y: -0.005}
   serializedVersion: 2
-  m_Size: {x: 0.25286418, y: 0.26155192}
-  m_EdgeRadius: 0
+  m_Radius: 0.13
 --- !u!114 &114377584306656008
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -20,7 +20,6 @@ public class PlayerMovement : MonoBehaviour
     {
         if (!isDead)
         {
-            Time.timeScale = 1;
             Move();
         }
         else

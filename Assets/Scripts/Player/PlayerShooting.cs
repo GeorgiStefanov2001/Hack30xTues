@@ -22,7 +22,8 @@ public class PlayerShooting : MonoBehaviour
         if (canShoot && Camera.main.GetComponent<GameController>().canStart)
         {
             GameObject bull = Instantiate(bullet);
-            bull.transform.position = transform.position + new Vector3(0.0f, GetComponent<BoxCollider2D>().size.y / 2 + bull.GetComponent<BoxCollider2D>().size.y / 2, 0.0f);
+            Vector3 offset = new Vector3(0f,GetComponent<SpriteRenderer>().size.y/2,0f);
+            bull.transform.position = transform.position + offset;
             canShoot = false;
             StartCoroutine(ShootDowntime());
         }

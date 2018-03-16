@@ -16,6 +16,7 @@ public class GameController : MonoBehaviour {
     
 
 	void Start () {
+        Handheld.Vibrate();
         canStart = false;
         StartCoroutine(wait3Secs());
         restartPanel.SetActive(false);

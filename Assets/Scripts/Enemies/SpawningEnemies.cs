@@ -59,7 +59,7 @@ public class SpawningEnemies : MonoBehaviour {
     {
         if (canSpawnEnemy2)
         {
-            if (Random.value <= 0.35f)
+            if (Random.value <= 0.25f)
             {
                 for (int i = 0; i < 2; i++)
                 {
@@ -92,7 +92,7 @@ public class SpawningEnemies : MonoBehaviour {
     {
         if (canSpawnEnemy3)
         {
-            if (Random.value <= 0.20f)
+            if (Random.value <= 0.2f)
             {
                 var rand = Random.Range(-enemy3.GetComponent<EnemyClass>().SpawnPointX, enemy3.GetComponent<EnemyClass>().SpawnPointX);
                 SpawnEnemy(rand, enemy3.GetComponent<EnemyClass>().SpawnPointY, enemy3);
