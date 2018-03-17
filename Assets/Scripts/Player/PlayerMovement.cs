@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public float speed;
+    public float accelerometerSpeed;
     public bool isDead;
 
     [SerializeField]
@@ -12,6 +13,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Start()
     {
+        Debug.Log(PlayerPrefs.GetString("Controls"));
         isDead = false;
     }
 
@@ -30,11 +32,26 @@ public class PlayerMovement : MonoBehaviour
 
     void Move()
     {
-        if (Input.touchCount>0 && Camera.main.GetComponent<GameController>().canStart)
-        {
-            Touch touch = Input.touches[0];
+        if (Camera.main.GetComponent<GameController>().canStart) {
+            if (PlayerPrefs.GetString("Controls") == "Finger movement")
+            {
+                if (Input.touchCount > 0)
+                {
+                    Touch touch = Input.touches[0];
 
-            transform.position = Vector2.Lerp(transform.position, Camera.main.ScreenToWorldPoint(touch.position), speed * Time.deltaTime);
+                    transform.position = Vector2.Lerp(transform.position, Camera.main.ScreenToWorldPoint(touch.position), speed * Time.deltaTime);
+                }
+            }
+            else if (PlayerPrefs.GetString("Controls") == "Accelerometer")
+            {
+
+                Vector3 dir = Vector3.zero;
+                dir.x = Input.acceleration.x;
+                dir.y = Input.acceleration.y;
+
+                transform.position += (dir * Time.deltaTime * accelerometerSpeed);
+            }
+
         }
         var pos = transform.position;
         pos.x = Mathf.Clamp(pos.x, -PaddingX, PaddingX);

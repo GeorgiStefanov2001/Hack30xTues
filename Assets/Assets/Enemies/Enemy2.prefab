@@ -135,7 +135,7 @@ MonoBehaviour:
   Speed: 1.5
   SpawnPointX: 3.5
   SpawnPointY: 0
-  respawnTime: 2
+  respawnTime: 5
   aggroRange: 3
   shootingCooldown: 3
 --- !u!114 &114384477043438598

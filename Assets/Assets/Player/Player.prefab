@@ -138,6 +138,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
+  accelerometerSpeed: 25
   isDead: 0
   PaddingY: 4.1
   PaddingX: 2.2
