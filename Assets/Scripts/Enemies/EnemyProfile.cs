@@ -36,5 +36,4 @@ public class EnemyProfile : MonoBehaviour {
         }
     }
 
-
 }

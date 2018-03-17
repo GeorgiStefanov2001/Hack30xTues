@@ -49,10 +49,8 @@ public class GameController : MonoBehaviour {
         startText.text = " ";
     }
 
-    public void Explode(Transform target)
-    {
+    public void Explode(Transform target) {
         explosion.transform.position = target.position;
-        explosion.GetComponent<ParticleSystem>().Play();
+        explosion.GetComponent <ParticleSystem>().Play();   
     }
-
 }

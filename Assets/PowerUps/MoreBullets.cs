@@ -22,7 +22,7 @@ public class MoreBullets : MonoBehaviour {
 
 	public void PowerUp(GameObject killed)
     {
-        if(Random.value*100 <=chance* killed.GetComponent<EnemyClass>().chanceMultiplier && !(GetComponent<PlayerShooting>().NumberOfBullets >= 5))
+        if(Random.value*100<=chance* killed.GetComponent<EnemyClass>().chanceMultiplier && !(GetComponent<PlayerShooting>().NumberOfBullets >= 5))
         {
             GameObject icon = Instantiate(powerIcon);
             icon.transform.position = killed.transform.position;
