@@ -11,6 +11,12 @@ public class MainUI : MonoBehaviour {
         SceneManager.LoadScene(1);
     }
 
+    public void BackToMenu()
+    {
+        Time.timeScale = 1;
+        SceneManager.LoadScene(0);
+    }
+
     public void Quit()
     {
         Application.Quit();

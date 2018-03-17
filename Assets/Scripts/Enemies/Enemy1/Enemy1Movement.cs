@@ -23,6 +23,7 @@ public class Enemy1Movement : MonoBehaviour {
         if (dist <= GetComponent<EnemyClass>().aggroRange && canShoot)
         { 
             GameObject bull = Instantiate(bullet);
+            bull.transform.position = transform.position;
             canShoot = false;
             StartCoroutine(waitForCooldown());
         }

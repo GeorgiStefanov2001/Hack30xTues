@@ -20,6 +20,9 @@ public class GameController : MonoBehaviour {
         canStart = false;
         StartCoroutine(wait3Secs());
         restartPanel.SetActive(false);
+        Screen.autorotateToPortrait = true;
+        Screen.autorotateToPortraitUpsideDown = true;
+        Screen.orientation = ScreenOrientation.AutoRotation;
     }
 	
 	void Update () {
