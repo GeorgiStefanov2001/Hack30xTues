@@ -20,6 +20,7 @@ public class Shields : MonoBehaviour {
         {
             Destroy(gameObject);
             coll.gameObject.GetComponent<ShieldBonus>().taken = true;
+            coll.gameObject.GetComponent<PlayerMovement>().hasShield = false;
         }
 	}
 }

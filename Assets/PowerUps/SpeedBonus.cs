@@ -12,6 +12,8 @@ public class SpeedBonus : MonoBehaviour {
     GameObject SpeedIcon;
     public bool taken;
     public bool hasSpawned;
+    [SerializeField]
+    GameObject bullet;
     
 
 	void Start () {
@@ -26,6 +28,7 @@ public class SpeedBonus : MonoBehaviour {
         {
             GetComponent<PlayerMovement>().speed += 10;
             GetComponent<PlayerMovement>().accelerometerSpeed += 10;
+            bullet.GetComponent<Bullet>().shootingSpeed += 10;
             StartCoroutine(SpeedBonusCoolDown(speedCoolDown));
             hasMoreSpeed = true;
             taken = false;
@@ -48,6 +51,7 @@ public class SpeedBonus : MonoBehaviour {
         yield return new WaitForSeconds(cooldown);
         GetComponent<PlayerMovement>().speed -= 10;
         GetComponent<PlayerMovement>().accelerometerSpeed -= 10;
+        bullet.GetComponent<Bullet>().shootingSpeed -= 10;
         hasMoreSpeed = false;
 
     }

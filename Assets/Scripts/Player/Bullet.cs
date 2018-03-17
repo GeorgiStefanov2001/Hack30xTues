@@ -6,8 +6,7 @@ public class Bullet : MonoBehaviour
 {
     [SerializeField]
     float MaxScreen;
-    [SerializeField]
-    float shootingSpeed;
+    public float shootingSpeed;
     [SerializeField]
     int damage;
 

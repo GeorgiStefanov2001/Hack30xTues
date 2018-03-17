@@ -59,6 +59,7 @@ GameObject:
   - component: {fileID: 114044183781682360}
   - component: {fileID: 114410004810987368}
   - component: {fileID: 114443111831644056}
+  - component: {fileID: 114359863879988870}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -219,9 +220,28 @@ MonoBehaviour:
   accelerometerSpeed: 25
   isDead: 0
   hasShield: 0
+  hasInvincibility: 0
   PaddingY: 4.1
   PaddingX: 2.2
   shieldOreol: {fileID: 1148160636869610}
+  invincibilityOreol: {fileID: 1185306860506992}
+--- !u!114 &114359863879988870
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1449370977473546}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aeda213bff0505545a8bb76f5480cce2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hasSpawned: 0
+  taken: 0
+  chance: 5
+  cooldown: 10
+  IconPowerUp: {fileID: 1888450294941798, guid: 891af885f7c35444a8e956345b62bc7e,
+    type: 2}
 --- !u!114 &114410004810987368
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -239,6 +259,7 @@ MonoBehaviour:
   SpeedIcon: {fileID: 1776748216268786, guid: 5227b593a756787459fb430e31a537de, type: 2}
   taken: 0
   hasSpawned: 0
+  bullet: {fileID: 1006620139708274, guid: 62961e8962824d747ad09405fb13fee2, type: 2}
 --- !u!114 &114443111831644056
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -250,7 +271,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83c1d33ed360b8740889c531480f6374, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chance: 100
+  chance: 10
   taken: 0
   hasSpawned: 0
   ShieldIcon: {fileID: 1774192989122570, guid: 5fe5b9fde9946d04896e11bc44d286b5, type: 2}

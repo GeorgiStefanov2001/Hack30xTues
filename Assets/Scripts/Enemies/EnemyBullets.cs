@@ -40,14 +40,16 @@ public class EnemyBullets : MonoBehaviour {
     {
         if (coll.gameObject.tag == "Player")
         {
-            if (coll.gameObject.GetComponent<PlayerMovement>().hasShield)
-            {
-                coll.gameObject.GetComponent<ShieldBonus>().hasSpawned = false;
-                coll.gameObject.GetComponent<PlayerMovement>().hasShield = false;
-            }
-            else
-            {
-                coll.gameObject.GetComponent<PlayerMovement>().isDead = true;
+            if (!coll.gameObject.GetComponent<PlayerMovement>().hasInvincibility){
+                if (coll.gameObject.GetComponent<PlayerMovement>().hasShield)
+                {
+                    coll.gameObject.GetComponent<ShieldBonus>().hasSpawned = false;
+                    coll.gameObject.GetComponent<PlayerMovement>().hasShield = false;
+                }
+                else
+                {
+                    coll.gameObject.GetComponent<PlayerMovement>().isDead = true;
+                }
             }
             Destroy(gameObject);
         }

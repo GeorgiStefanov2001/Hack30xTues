@@ -7,12 +7,12 @@ public class PlayerMovement : MonoBehaviour
     public float speed;
     public float accelerometerSpeed;
     public bool isDead;
-    public bool hasShield;
+    public bool hasShield, hasInvincibility;
 
     [SerializeField]
     float PaddingY, PaddingX;
     [SerializeField]
-    GameObject shieldOreol;
+    GameObject shieldOreol, invincibilityOreol;
 
     void Start()
     {
@@ -33,13 +33,22 @@ public class PlayerMovement : MonoBehaviour
             Time.timeScale = 0;
         }
 
-        if (hasShield)
+        if (hasShield && !hasInvincibility)
         {
             shieldOreol.SetActive(true);
         }
         else
         {
             shieldOreol.SetActive(false);
+        }
+
+        if (hasInvincibility)
+        {
+            invincibilityOreol.SetActive(true);
+        }
+        else
+        {
+            invincibilityOreol.SetActive(false);
         }
     }
 
@@ -73,16 +82,19 @@ public class PlayerMovement : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D coll)
     {
-        if(coll.gameObject.tag == "Enemy")
+        if(coll.gameObject.tag == "Enemy" )
         {
             Destroy(coll.gameObject);
-            if (hasShield)
+            if (!hasInvincibility)
             {
-                hasShield = false;
-            }
-            else
-            {
-                isDead = true;
+                if (hasShield)
+                {
+                    hasShield = false;
+                }
+                else
+                {
+                    isDead = true;
+                }
             }
         }
     }
