@@ -11,6 +11,7 @@ public class EnemyClass : MonoBehaviour {
     public float respawnTime;
     public float aggroRange;
     public float shootingCooldown;
+    public float chanceMultiplier;
 
     public int HP
     {

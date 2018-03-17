@@ -17,6 +17,7 @@ public class EnemyProfile : MonoBehaviour {
     {
         if (hp <= 0)
         {
+            GameObject.FindGameObjectWithTag("Player").GetComponent<MoreBullets>().PowerUp(gameObject);
             Destroy(gameObject);
         }
     }

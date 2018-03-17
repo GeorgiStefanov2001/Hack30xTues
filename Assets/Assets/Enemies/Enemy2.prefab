@@ -138,6 +138,7 @@ MonoBehaviour:
   respawnTime: 2
   aggroRange: 3
   shootingCooldown: 3
+  chanceMultiplier: 1.5
 --- !u!114 &114384477043438598
 MonoBehaviour:
   m_ObjectHideFlags: 1

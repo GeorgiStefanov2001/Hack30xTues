@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 95679836272055890}
   - component: {fileID: 114033749459213540}
   - component: {fileID: 60044897139987200}
+  - component: {fileID: 114044183781682360}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -125,7 +126,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ShootingCooldown: 0.3
   bullet: {fileID: 1006620139708274, guid: 62961e8962824d747ad09405fb13fee2, type: 2}
+  NumberOfBullets: 0
   canShoot: 1
+--- !u!114 &114044183781682360
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1449370977473546}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2718d6ea28f158d4899b3ea990bd9f72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  duration: 15
+  chance: 25
 --- !u!114 &114236068602077996
 MonoBehaviour:
   m_ObjectHideFlags: 1

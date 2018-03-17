@@ -150,6 +150,7 @@ MonoBehaviour:
   respawnTime: 3
   aggroRange: 3
   shootingCooldown: 3
+  chanceMultiplier: 1
 --- !u!212 &212069572248716442
 SpriteRenderer:
   m_ObjectHideFlags: 1
