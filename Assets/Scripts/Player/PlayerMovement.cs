@@ -11,6 +11,8 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField]
     float PaddingY, PaddingX;
+    [SerializeField]
+    GameObject shieldOreol;
 
     void Start()
     {
@@ -29,6 +31,15 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             Time.timeScale = 0;
+        }
+
+        if (hasShield)
+        {
+            shieldOreol.SetActive(true);
+        }
+        else
+        {
+            shieldOreol.SetActive(false);
         }
     }
 
