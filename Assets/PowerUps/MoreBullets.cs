@@ -9,7 +9,7 @@ public class MoreBullets : MonoBehaviour {
 
 	public void PowerUp(GameObject killed)
     {
-        if(Random.value*100<=chance* killed.GetComponent<EnemyClass>().chanceMultiplier)
+        if(Random.value*100<=chance* killed.GetComponent<EnemyClass>().chanceMultiplier && GetComponent<PlayerShooting>().NumberOfBullets!=2)
         {
             GetComponent<PlayerShooting>().NumberOfBullets = 2;
         }

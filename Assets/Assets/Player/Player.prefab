@@ -140,7 +140,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   duration: 15
-  chance: 25
+  chance: 30
 --- !u!114 &114236068602077996
 MonoBehaviour:
   m_ObjectHideFlags: 1
