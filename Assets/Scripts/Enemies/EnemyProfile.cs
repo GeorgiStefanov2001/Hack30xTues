@@ -20,9 +20,12 @@ public class EnemyProfile : MonoBehaviour {
             GameObject.FindGameObjectWithTag("Player").GetComponent<SpeedBonus>().Spawn(gameObject);
             GameObject.FindGameObjectWithTag("Player").GetComponent<MoreBullets>().PowerUp(gameObject);
             GameObject.FindGameObjectWithTag("Player").GetComponent<ShieldBonus>().Spawn(gameObject);
+            Camera.main.GetComponent<GameController>().Explode(gameObject.transform);
             Destroy(gameObject);
         }
     }
+
+
 
     void OnCollisionEnter2D(Collision2D coll)
     {

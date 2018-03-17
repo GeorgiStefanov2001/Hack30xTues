@@ -13,6 +13,8 @@ public class GameController : MonoBehaviour {
     GameObject restartPanel;
     [SerializeField]
     Text soldiersCount;
+    [SerializeField]
+    GameObject explosion;
     
 
 	void Start () {
@@ -45,5 +47,11 @@ public class GameController : MonoBehaviour {
         canStart = true;
         yield return new WaitForSeconds(1f);
         startText.text = " ";
+    }
+
+    public void Explode(Transform target) {
+        explosion.transform.position = target.position;
+        explosion.GetComponent <ParticleSystem>().Play();
+        
     }
 }
