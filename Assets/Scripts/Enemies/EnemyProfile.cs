@@ -25,7 +25,7 @@ public class EnemyProfile : MonoBehaviour {
     {
         if (coll.gameObject.tag == "Enemy" && coll.gameObject != gameObject)
         {
-            Physics2D.IgnoreCollision(coll.gameObject.GetComponent<Collider2D>(), gameObject.GetComponent<Collider2D>());
+            Physics2D.IgnoreCollision(coll.gameObject.GetComponent<BoxCollider2D>(), gameObject.GetComponent<BoxCollider2D>());
         }
     }
 

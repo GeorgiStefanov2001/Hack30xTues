@@ -15,7 +15,7 @@ public class Menu : MonoBehaviour {
 
     void Start()
     {
-        if (PlayerPrefs.GetString("Controls") != "Finger movemenet" && PlayerPrefs.GetString("Controls") != "Accelerometer00")
+        if (PlayerPrefs.GetString("Controls") != "Finger movemenet" && PlayerPrefs.GetString("Controls") != "Accelerometer")
         {
             PlayerPrefs.SetString("Controls", "Finger movement");
         }
