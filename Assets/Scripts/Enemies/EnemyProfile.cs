@@ -20,4 +20,13 @@ public class EnemyProfile : MonoBehaviour {
             Destroy(gameObject);
         }
     }
+
+    void OnCollisionEnter2D(Collision2D coll)
+    {
+        if (coll.gameObject.tag == "Enemy" && coll.gameObject != gameObject)
+        {
+            Physics2D.IgnoreCollision(coll.gameObject.GetComponent<Collider2D>(), gameObject.GetComponent<Collider2D>());
+        }
+    }
+
 }
