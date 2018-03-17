@@ -10,4 +10,9 @@ public class MainUI : MonoBehaviour {
         Time.timeScale = 1;
         SceneManager.LoadScene(1);
     }
+
+    public void Quit()
+    {
+        Application.Quit();
+    }
 }

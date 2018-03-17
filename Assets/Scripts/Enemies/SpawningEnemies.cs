@@ -37,7 +37,7 @@ public class SpawningEnemies : MonoBehaviour {
     {
         if (canSpawnEnemy1)
         {
-            if (Random.value <= 0.50f)
+            if (Random.value <= 0.60f)
             {
                 for (int i = 0; i < 3; i++)
                 {
@@ -59,7 +59,7 @@ public class SpawningEnemies : MonoBehaviour {
     {
         if (canSpawnEnemy2)
         {
-            if (Random.value <= 0.25f)
+            if (Random.value <= 0.15f)
             {
                 for (int i = 0; i < 2; i++)
                 {

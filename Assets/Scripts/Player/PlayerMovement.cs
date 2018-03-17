@@ -30,28 +30,16 @@ public class PlayerMovement : MonoBehaviour
 
     void Move()
     {
-        if (Input.GetMouseButton(0) && Camera.main.GetComponent<GameController>().canStart)
+        if (Input.touchCount>0 && Camera.main.GetComponent<GameController>().canStart)
         {
-            transform.position = Vector2.Lerp(transform.position, Camera.main.ScreenToWorldPoint(Input.mousePosition), speed * Time.deltaTime);
+            Touch touch = Input.touches[0];
 
-            if (transform.position.x <= -PaddingX)
-            {
-                transform.position = new Vector2(-PaddingX, transform.position.y);
-            }
-            else if (transform.position.x >= PaddingX)
-            {
-                transform.position = new Vector2(PaddingX, transform.position.y);
-            }
-
-            if (transform.position.y <= -PaddingY)
-            {
-                transform.position = new Vector2(transform.position.x, -PaddingY);
-            }
-            else if (transform.position.y >= PaddingY)
-            {
-                transform.position = new Vector2(transform.position.x, PaddingY);
-            }
+            transform.position = Vector2.Lerp(transform.position, Camera.main.ScreenToWorldPoint(touch.position), speed * Time.deltaTime);
         }
+        var pos = transform.position;
+        pos.x = Mathf.Clamp(pos.x, -PaddingX, PaddingX);
+        pos.y = Mathf.Clamp(pos.y, -PaddingY, PaddingY);
+        transform.position = pos;
     }
 
     void OnCollisionEnter2D(Collision2D coll)
