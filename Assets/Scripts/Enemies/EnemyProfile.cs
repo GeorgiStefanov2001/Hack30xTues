@@ -17,9 +17,9 @@ public class EnemyProfile : MonoBehaviour {
     {
         if (hp <= 0)
         {
-            GameObject.FindGameObjectWithTag("Player").GetComponent<SpeedBonus>().SpeedUp(gameObject);
+            GameObject.FindGameObjectWithTag("Player").GetComponent<SpeedBonus>().Spawn(gameObject);
             GameObject.FindGameObjectWithTag("Player").GetComponent<MoreBullets>().PowerUp(gameObject);
-            GameObject.FindGameObjectWithTag("Player").GetComponent<ShieldBonus>().PowerUp(gameObject);
+            GameObject.FindGameObjectWithTag("Player").GetComponent<ShieldBonus>().Spawn(gameObject);
             Destroy(gameObject);
         }
     }

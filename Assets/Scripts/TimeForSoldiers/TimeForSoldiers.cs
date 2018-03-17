@@ -16,7 +16,7 @@ public class TimeForSoldiers : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (Camera.main.GetComponent<GameController>().canStart)
+        if (GetComponent<GameController>().canStart)
         {
             timeEarned = Time.timeSinceLevelLoad - 3f;
             time.text = timeEarned.ToString("0.00");

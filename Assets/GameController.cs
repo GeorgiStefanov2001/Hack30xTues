@@ -29,7 +29,7 @@ public class GameController : MonoBehaviour {
         if (GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>().isDead)
         {
             restartPanel.SetActive(true);
-            soldiersCount.text = "Saved " + (GameObject.Find("Timer").GetComponent<TimeForSoldiers>().timeEarned * GameObject.Find("Timer").GetComponent<TimeForSoldiers>().TimeMultiplier).ToString("0");
+            soldiersCount.text = "Saved " + (GetComponent<TimeForSoldiers>().timeEarned * GetComponent<TimeForSoldiers>().TimeMultiplier).ToString("0");
         }
     }
 

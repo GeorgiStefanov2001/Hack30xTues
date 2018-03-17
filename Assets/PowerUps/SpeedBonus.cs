@@ -11,36 +11,44 @@ public class SpeedBonus : MonoBehaviour {
     [SerializeField]
     GameObject SpeedIcon;
     public bool taken;
+    public bool hasSpawned;
     
 
 	void Start () {
         hasMoreSpeed = false;
+        hasSpawned = false;
         taken = false;
 	}
 
-    public void SpeedUp(GameObject killed)
+    void Update()
     {
-        if (!hasMoreSpeed && Random.value*100<=chance*killed.GetComponent<EnemyClass>().chanceMultiplier)
+        if (taken)
         {
+            GetComponent<PlayerMovement>().speed += 10;
+            GetComponent<PlayerMovement>().accelerometerSpeed += 10;
+            StartCoroutine(SpeedBonusCoolDown(speedCoolDown));
+            hasMoreSpeed = true;
+            taken = false;
+            hasSpawned = false;
+        }
+    }
+
+    public void Spawn(GameObject killed)
+    {
+        if (!hasMoreSpeed && Random.value * 100 <= chance * killed.GetComponent<EnemyClass>().chanceMultiplier && !hasSpawned)
+        {
+            hasSpawned = true;
             GameObject icon = Instantiate(SpeedIcon);
             icon.transform.position = killed.transform.position;
-            if (taken)
-            {
-                GetComponent<PlayerMovement>().speed += 10;
-                GetComponent<PlayerMovement>().accelerometerSpeed += 10;
-                StartCoroutine(SpeedBonusCoolDown(speedCoolDown));
-                hasMoreSpeed = true;
-                taken = false;
-            }
         }
     }
 
     IEnumerator SpeedBonusCoolDown(float cooldown)
     {
         yield return new WaitForSeconds(cooldown);
-        hasMoreSpeed = false;
         GetComponent<PlayerMovement>().speed -= 10;
         GetComponent<PlayerMovement>().accelerometerSpeed -= 10;
+        hasMoreSpeed = false;
 
     }
 }

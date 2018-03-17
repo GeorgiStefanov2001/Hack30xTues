@@ -141,9 +141,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2718d6ea28f158d4899b3ea990bd9f72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  duration: 15
   chance: 30
   powerIcon: {fileID: 1447741611908170, guid: ece8d233f9740a64d93d1703bdacd821, type: 2}
+  taken: 0
 --- !u!114 &114236068602077996
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -177,6 +177,7 @@ MonoBehaviour:
   hasMoreSpeed: 0
   SpeedIcon: {fileID: 1776748216268786, guid: 5227b593a756787459fb430e31a537de, type: 2}
   taken: 0
+  hasSpawned: 0
 --- !u!114 &114443111831644056
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -188,8 +189,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83c1d33ed360b8740889c531480f6374, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chance: 100
+  chance: 20
   taken: 0
+  hasSpawned: 0
   ShieldIcon: {fileID: 1774192989122570, guid: 5fe5b9fde9946d04896e11bc44d286b5, type: 2}
 --- !u!212 &212123900026593340
 SpriteRenderer:

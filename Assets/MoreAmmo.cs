@@ -4,11 +4,23 @@ using UnityEngine;
 
 public class MoreAmmo : MonoBehaviour {
     
+    void Update()
+    {
+        var pos = transform.position;
+        pos.y -= Camera.main.GetComponent<SideScrolling>().ScrollingSpeed * Time.deltaTime;
+        transform.position = pos;
+        if (transform.position.y < Camera.main.GetComponent<SideScrolling>().BottomBorder)
+        {
+            Destroy(gameObject);
+        }
+    }
+
     void OnTriggerEnter2D(Collider2D coll)
     {
         if(coll.gameObject.tag == "Player")
         {
-            coll.gameObject.GetComponent<PlayerShooting>().NumberOfBullets = 2;
+            GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerShooting>().NumberOfBullets++;
+            coll.gameObject.GetComponent<MoreBullets>().taken = true;
             Destroy(gameObject);
         }
     }

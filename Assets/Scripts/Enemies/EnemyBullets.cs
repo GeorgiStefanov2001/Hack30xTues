@@ -42,12 +42,14 @@ public class EnemyBullets : MonoBehaviour {
         {
             if (coll.gameObject.GetComponent<PlayerMovement>().hasShield)
             {
+                coll.gameObject.GetComponent<ShieldBonus>().hasSpawned = false;
                 coll.gameObject.GetComponent<PlayerMovement>().hasShield = false;
             }
             else
             {
                 coll.gameObject.GetComponent<PlayerMovement>().isDead = true;
             }
+            Destroy(gameObject);
         }
     }
 }

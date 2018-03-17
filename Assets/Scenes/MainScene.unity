@@ -618,6 +618,7 @@ GameObject:
   - component: {fileID: 785703356}
   - component: {fileID: 785703357}
   - component: {fileID: 785703358}
+  - component: {fileID: 785703359}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -828,6 +829,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 470d1012a69146045a7c004d94ef2632, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &785703359
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 785703349}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6528aa1655e058f4b9002b14484cf0a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  time: {fileID: 842876351}
+  timeEarned: 0
+  TimeMultiplier: 1.5
 --- !u!1 &826811275
 GameObject:
   m_ObjectHideFlags: 0
@@ -912,7 +927,6 @@ GameObject:
   - component: {fileID: 842876350}
   - component: {fileID: 842876352}
   - component: {fileID: 842876351}
-  - component: {fileID: 842876353}
   m_Layer: 0
   m_Name: Timer
   m_TagString: Untagged
@@ -977,20 +991,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 842876349}
---- !u!114 &842876353
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 842876349}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6528aa1655e058f4b9002b14484cf0a6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  time: {fileID: 842876351}
-  timeEarned: 0
-  TimeMultiplier: 1.5
 --- !u!1 &1246681441
 GameObject:
   m_ObjectHideFlags: 0

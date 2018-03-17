@@ -7,6 +7,7 @@ public class ShieldBonus : MonoBehaviour {
     float chance;
     public bool taken;
     bool hasMoreShields;
+    public bool hasSpawned;
 
     [SerializeField]
     GameObject ShieldIcon;
@@ -17,16 +18,22 @@ public class ShieldBonus : MonoBehaviour {
         hasMoreShields = false;
     }
 
-    public void PowerUp(GameObject killed)
+    void Update()
     {
-        if (!hasMoreShields && Random.value * 100 <= chance * killed.GetComponent<EnemyClass>().chanceMultiplier)
+        if (taken)
         {
+            GetComponent<PlayerMovement>().hasShield = true;
+            taken = false;
+        }
+    }
+
+    public void Spawn(GameObject killed)
+    {
+        if (!hasMoreShields && Random.value * 100 <= chance * killed.GetComponent<EnemyClass>().chanceMultiplier && !hasSpawned)
+        {
+            hasSpawned = true;
             GameObject icon = Instantiate(ShieldIcon);
             icon.transform.position = killed.transform.position;
-            if (taken)
-            {
-                GetComponent<PlayerMovement>().hasShield = true;
-            }
         }
 
     }

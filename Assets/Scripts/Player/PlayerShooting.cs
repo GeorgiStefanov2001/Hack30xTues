@@ -28,9 +28,10 @@ public class PlayerShooting : MonoBehaviour
             switch (NumberOfBullets)
             {
                 case 1: SpawnOneBullet();break;
-                case 2: SpawnPoweredBullets(2);
-                    StartCoroutine(DurationOfMoreBullets());
-                    break;
+                case 2: SpawnTwoBullets(1,8); break;
+                case 3: SpawnThreeBullets(1, 8);break;
+                case 4: SpawnFourBullets(2,8); break;
+                case 5: SpawnFiveBullets(2, 8);break;
             }
         }
     }
@@ -44,32 +45,40 @@ public class PlayerShooting : MonoBehaviour
         StartCoroutine(ShootDowntime());
     }
 
-    void SpawnPoweredBullets(int divX)
+    void SpawnTwoBullets(int multipl,int div)
     {
-        var divY = divX;
-        for(int i = 0; i < 2; i++,divX*=2)
+        for(int i = 0; i < 2; i++)
         {
             GameObject bull = Instantiate(bullet);
-            Vector3 offset = new Vector3(-GetComponent<SpriteRenderer>().size.x / divX, GetComponent<SpriteRenderer>().size.y / divY, 0f);
+            Vector3 offset = new Vector3(GetComponent<SpriteRenderer>().size.x/div*multipl, GetComponent<SpriteRenderer>().size.y / 2, 0f);
             bull.transform.position = transform.position + offset;
+            canShoot = false;
+            multipl *= -1;
+            StartCoroutine(ShootDowntime());
         }
-        divX = divY;
-        for (int i = 0; i < 2; i++, divX *= 2)
-        {
-            GameObject bull = Instantiate(bullet);
-            Vector3 offset = new Vector3(GetComponent<SpriteRenderer>().size.x / divX, GetComponent<SpriteRenderer>().size.y / divY, 0f);
-            bull.transform.position = transform.position + offset;
-        }
-
-        canShoot = false;
-        StartCoroutine(ShootDowntime());
     }
 
-    IEnumerator DurationOfMoreBullets()
+    void SpawnThreeBullets(int multipl, int div)
     {
-        yield return new WaitForSeconds(GetComponent<MoreBullets>().duration);
-        NumberOfBullets = 1;
+        SpawnOneBullet();
+        SpawnTwoBullets(multipl, div);
     }
+
+    void SpawnFourBullets(int multipl,int div)
+    {
+        for(int i = 0; i < 2; i++)
+        {
+            SpawnTwoBullets(multipl,div);
+            div /= 2;
+        }
+    }
+
+    void SpawnFiveBullets(int multipl,int div)
+    {
+        SpawnFourBullets(multipl, div);
+        SpawnOneBullet();
+    }
+
 
     IEnumerator ShootDowntime()
     {
