@@ -38,9 +38,16 @@ public class EnemyBullets : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D coll)
     {
-        if(coll.gameObject.tag == "Player")
+        if (coll.gameObject.tag == "Player")
         {
-            coll.gameObject.GetComponent<PlayerMovement>().isDead = true;
+            if (coll.gameObject.GetComponent<PlayerMovement>().hasShield)
+            {
+                coll.gameObject.GetComponent<PlayerMovement>().hasShield = false;
+            }
+            else
+            {
+                coll.gameObject.GetComponent<PlayerMovement>().isDead = true;
+            }
         }
     }
 }

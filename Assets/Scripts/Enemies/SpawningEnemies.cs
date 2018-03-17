@@ -11,7 +11,7 @@ public class SpawningEnemies : MonoBehaviour {
     [SerializeField]
     GameObject enemy3;
 
-    public bool canSpawnEnemy1 = true;//for now
+    public bool canSpawnEnemy1 = true;
     public bool canSpawnEnemy2 = true;
     public bool canSpawnEnemy3 = true;
 

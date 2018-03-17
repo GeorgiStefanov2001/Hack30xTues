@@ -7,6 +7,7 @@ public class PlayerMovement : MonoBehaviour
     public float speed;
     public float accelerometerSpeed;
     public bool isDead;
+    public bool hasShield;
 
     [SerializeField]
     float PaddingY, PaddingX;
@@ -15,6 +16,7 @@ public class PlayerMovement : MonoBehaviour
     {
         Debug.Log(PlayerPrefs.GetString("Controls"));
         isDead = false;
+        hasShield = false;
     }
 
 
@@ -63,7 +65,14 @@ public class PlayerMovement : MonoBehaviour
         if(coll.gameObject.tag == "Enemy")
         {
             Destroy(coll.gameObject);
-            isDead = true;
+            if (hasShield)
+            {
+                hasShield = false;
+            }
+            else
+            {
+                isDead = true;
+            }
         }
     }
 }

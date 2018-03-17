@@ -7,22 +7,31 @@ public class SpeedBonus : MonoBehaviour {
     [SerializeField]
     float speedCoolDown, chance;
     [SerializeField]
-    bool hasMoreSpeed;//for testing
+    bool hasMoreSpeed;
+    [SerializeField]
+    GameObject SpeedIcon;
+    public bool taken;
     
 
 	void Start () {
         hasMoreSpeed = false;
+        taken = false;
 	}
 
-    public void SpeedUp()
+    public void SpeedUp(GameObject killed)
     {
-        if (!hasMoreSpeed)
+        if (!hasMoreSpeed && Random.value*100<=chance*killed.GetComponent<EnemyClass>().chanceMultiplier)
         {
-            GetComponent<PlayerMovement>().speed += 10;
-            GetComponent<PlayerMovement>().accelerometerSpeed += 10;
-
-            StartCoroutine(SpeedBonusCoolDown(speedCoolDown));
-            hasMoreSpeed = true;
+            GameObject icon = Instantiate(SpeedIcon);
+            icon.transform.position = killed.transform.position;
+            if (taken)
+            {
+                GetComponent<PlayerMovement>().speed += 10;
+                GetComponent<PlayerMovement>().accelerometerSpeed += 10;
+                StartCoroutine(SpeedBonusCoolDown(speedCoolDown));
+                hasMoreSpeed = true;
+                taken = false;
+            }
         }
     }
 
