@@ -55,6 +55,7 @@ public class PlayerMovement : MonoBehaviour
     void Move()
     {
         if (Camera.main.GetComponent<GameController>().canStart) {
+            
             if (PlayerPrefs.GetString("Controls") == "Finger movement")
             {
                 if (Input.touchCount > 0)
@@ -73,6 +74,13 @@ public class PlayerMovement : MonoBehaviour
                 transform.position += (dir * Time.deltaTime * accelerometerSpeed);
             }
 
+            //The code below is for playing with the mouse (testing purposes)
+            /*
+            if (Input.GetMouseButton(0))
+            {
+                transform.position = Vector2.Lerp(transform.position, Camera.main.ScreenToWorldPoint(Input.mousePosition), speed * Time.deltaTime);
+            }
+            */
         }
         var pos = transform.position;
         pos.x = Mathf.Clamp(pos.x, -PaddingX, PaddingX);

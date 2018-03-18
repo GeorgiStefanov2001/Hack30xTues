@@ -136,7 +136,7 @@ MonoBehaviour:
   Health: 50
   Speed: 2
   SpawnPointX: 0
-  SpawnPointY: -8
+  SpawnPointY: -12
   respawnTime: 10
   aggroRange: 0
   shootingCooldown: 3

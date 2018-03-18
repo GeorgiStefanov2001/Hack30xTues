@@ -133,7 +133,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Health: 5
   Speed: 1.5
-  SpawnPointX: 3.5
+  SpawnPointX: 5
   SpawnPointY: 0
   respawnTime: 2
   aggroRange: 3
